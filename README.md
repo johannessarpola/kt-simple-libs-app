@@ -1,4 +1,4 @@
-# Libs with Github Packages
+# "App" to use libs from Github Packages
 
 ## Download libs from Github Packages m2 repository
 
