@@ -27,3 +27,15 @@ It will work on GHA with the env
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_USERNAME: <USERNAME>
 ```
+
+Similariy the platform dependency needs to be defined in a separate repository 
+
+```
+    maven {
+        url = uri("https://maven.pkg.github.com/johannessarpola/kt-simple-platform")
+        credentials {
+            username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_USERNAME")
+            password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+        }
+    }
+```
