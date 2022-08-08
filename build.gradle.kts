@@ -17,9 +17,19 @@ repositories {
             password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
         }
     }
+
+    maven {
+        url = uri("https://maven.pkg.github.com/johannessarpola/kt-simple-platform")
+        credentials {
+            username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_USERNAME")
+            password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+        }
+    }
 }
 
 dependencies {
+    api(platform("fi.johannes:kt-simple-platform:0.0.5"))
+    api("org.apache.httpcomponents:httpclient")
     implementation("fi.johannes:strings:0.0.2")
     implementation("fi.johannes:hash:0.0.2")
     testImplementation(kotlin("test"))
